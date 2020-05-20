@@ -5,13 +5,12 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.zsmart.parascolaire.bean.Responsabilite;
-
-
+import com.zsmart.parascolaire.bean.Salle;
 
 @Repository
-public interface ResponsabiliteDao extends JpaRepository<Responsabilite, Long> {
-
+public interface SalleDao extends JpaRepository<Salle, Long>{
 	
-	   public List<Responsabilite> findAll();
+	
+	   public List<Salle> findAll();
+
 }

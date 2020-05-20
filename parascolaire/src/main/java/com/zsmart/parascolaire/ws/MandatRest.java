@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.zsmart.parascolaire.bean.TypeClub;
-import com.zsmart.parascolaire.model.facade.TypeClubService;
+import com.zsmart.parascolaire.bean.Mandat;
+
+import com.zsmart.parascolaire.model.facade.MandatService;
+
 
 @Controller
-@RequestMapping ("parascolaire/typeClub")
-public class TypeClubRest {
+@RequestMapping("parascolaire/mandat")
+public class MandatRest {
 	
-
 	@Autowired
-	private TypeClubService typeClubService;
+	private MandatService mandatService;
 	
 	@GetMapping("/id/{id}")
-	public TypeClub findById(@PathVariable int id) {
-		return typeClubService.findById(id);
+	public Mandat findById(@PathVariable int id) {
+		return mandatService.findById(id);
 	}
 	
 	@DeleteMapping("/id/{id}")
 	public int deleteById(@PathVariable int id) {
-		return typeClubService.deleteById(id);
+		return mandatService.deleteById(id);
 	}
 	
 	@PostMapping("/")
-	public void save(@RequestBody TypeClub typeClub) {
-		typeClubService.save(typeClub);
+	public void save(@RequestBody Mandat mandat) {
+		mandatService.save(mandat);
 		
 
 	}
 	@GetMapping("/")
-	public List<TypeClub> findAll() {
-		return typeClubService.findAll();
+	public List<Mandat> findAll() {
+		return mandatService.findAll();
 	}
-	
 
 }

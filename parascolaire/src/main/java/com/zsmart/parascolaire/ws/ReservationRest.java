@@ -1,6 +1,5 @@
 package com.zsmart.parascolaire.ws;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,37 +11,35 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.zsmart.parascolaire.bean.TypeClub;
-import com.zsmart.parascolaire.model.facade.TypeClubService;
+import com.zsmart.parascolaire.bean.Reservation;
+import com.zsmart.parascolaire.model.facade.ReservationService;
 
 @Controller
-@RequestMapping ("parascolaire/typeClub")
-public class TypeClubRest {
-	
+@RequestMapping("parascolaire/reservation")
+public class ReservationRest {
 
 	@Autowired
-	private TypeClubService typeClubService;
+	private ReservationService reservationService;
 	
 	@GetMapping("/id/{id}")
-	public TypeClub findById(@PathVariable int id) {
-		return typeClubService.findById(id);
+	public Reservation findById(@PathVariable int id) {
+		return reservationService.findById(id);
 	}
 	
 	@DeleteMapping("/id/{id}")
 	public int deleteById(@PathVariable int id) {
-		return typeClubService.deleteById(id);
+		return reservationService.deleteById(id);
 	}
 	
 	@PostMapping("/")
-	public void save(@RequestBody TypeClub typeClub) {
-		typeClubService.save(typeClub);
+	public void save(@RequestBody Reservation reservation) {
+		reservationService.save(reservation);
 		
 
 	}
 	@GetMapping("/")
-	public List<TypeClub> findAll() {
-		return typeClubService.findAll();
+	public List<Reservation> findAll() {
+		return reservationService.findAll();
 	}
-	
 
 }

@@ -1,13 +1,49 @@
 package com.zsmart.parascolaire.ws;
 
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.zsmart.parascolaire.bean.Utilisateur;
+import com.zsmart.parascolaire.model.facade.UtilisateurService;
+
+
+
 @Controller
-@RequestMapping
+@RequestMapping("parascolaire/utilisateur")
 public class UtilisateurRest {
 	
+	@Autowired
+	private UtilisateurService utilisateurService;
+	
+	@GetMapping("/id/{id}")
+	public Utilisateur findById(@PathVariable int id) {
+		return utilisateurService.findById(id);
+	}
+	
+	@DeleteMapping("/id/{id}")
+	public int deleteById(@PathVariable int id) {
+		return utilisateurService.deleteById(id);
+	}
+	
+	@PostMapping("/")
+	public void save(@RequestBody Utilisateur utilisateur) {
+		utilisateurService.save(utilisateur);
+		
+
+	}
+	@GetMapping("/")
+	public List<Utilisateur> findAll() {
+		return utilisateurService.findAll();
+	}
 	
 
 }
