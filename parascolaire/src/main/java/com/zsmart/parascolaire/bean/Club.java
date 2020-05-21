@@ -8,44 +8,70 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Club implements Serializable {
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String libelle;
+	private String description;
+
+	@Temporal(javax.persistence.TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date dateCreation;
+
 	@ManyToOne
 	private TypeClub typeClub;
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getLibelle() {
 		return libelle;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+
 	public Date getDateCreation() {
 		return dateCreation;
 	}
+
 	public void setDateCreation(Date dateCreation) {
 		this.dateCreation = dateCreation;
 	}
+
 	public TypeClub getTypeClub() {
 		return typeClub;
 	}
+
 	public void setTypeClub(TypeClub typeClub) {
 		this.typeClub = typeClub;
 	}
-	
+
 	public Club() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public Club(Long id, String libelle, Date dateCreation, TypeClub typeClub) {
 		super();
 		this.id = id;
@@ -53,7 +79,7 @@ public class Club implements Serializable {
 		this.dateCreation = dateCreation;
 		this.typeClub = typeClub;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -64,6 +90,7 @@ public class Club implements Serializable {
 		result = prime * result + ((typeClub == null) ? 0 : typeClub.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -95,14 +122,11 @@ public class Club implements Serializable {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Club [id=" + id + ", libelle=" + libelle + ", dateCreation=" + dateCreation + ", typeClub=" + typeClub
 				+ "]";
 	}
-	
-	
-	
-	
 
 }

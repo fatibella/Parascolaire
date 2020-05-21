@@ -14,53 +14,43 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.zsmart.parascolaire.bean.Club;
+import com.zsmart.parascolaire.bean.EvenementConsommation;
 import com.zsmart.parascolaire.service.facade.ClubService;
+import com.zsmart.parascolaire.service.facade.EvenementConsommationService;
 
 @Controller
-@RequestMapping("/parascolaire/Club")
+@RequestMapping("/parascolaire/EvenementConsommation")
 @CrossOrigin(origins = { "http://localhost:4200" })
-public class ClubRest {
+public class EvenementConsommationRest {
 
 	@Autowired
-	private ClubService clubService;
+	private EvenementConsommationService evenementConsommationService;
 
 	@GetMapping("/id/{id}")
-	public Club findById(@PathVariable Long id) {
-		return clubService.findById(id);
-	}
-
-	@GetMapping("/libelle/{libelle}/")
-	public Club findByLibelle(@PathVariable String libelle) {
-		return clubService.findByLibelle(libelle);
+	public EvenementConsommation findById(@PathVariable Long id) {
+		return evenementConsommationService.findById(id);
 	}
 
 	@GetMapping("/")
-	public List<Club> findAll() {
-		return clubService.findAll();
+	public List<EvenementConsommation> findAll() {
+		return evenementConsommationService.findAll();
 	}
 
 	@PostMapping("/")
-	public int save(@RequestBody Club club) {
-		return clubService.save(club);
+	public int save(@RequestBody EvenementConsommation evenementConsommation) {
+		return evenementConsommationService.save(evenementConsommation);
 	}
 
 	@DeleteMapping("/")
 	@Transactional
-	public int delete(@RequestBody Club club) {
-		return clubService.delete(club);
+	public int delete(@RequestBody EvenementConsommation evenementConsommation) {
+		return evenementConsommationService.delete(evenementConsommation);
 	}
 
 	@DeleteMapping("/{id}")
 	@Transactional
 	public void deleteById(@PathVariable Long id) {
-		clubService.deleteById(id);
-	}
-
-	@DeleteMapping("/{libelle}")
-	@Transactional
-	public void deleteByLibelle(@PathVariable String libelle) {
-		clubService.deleteByLibelle(libelle);
+		evenementConsommationService.deleteById(id);
 	}
 
 }

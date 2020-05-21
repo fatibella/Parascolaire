@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.zsmart.parascolaire.bean.Salle;
-import com.zsmart.parascolaire.model.facade.SalleService;
+import com.zsmart.parascolaire.service.facade.SalleService;
 
 @Controller
 @RequestMapping("parascolaire/salle")
@@ -20,23 +20,23 @@ public class SalleRest {
 
 	@Autowired
 	private SalleService salleService;
-	
+
 	@GetMapping("/id/{id}")
-	public Salle findById(@PathVariable int id) {
+	public Salle findById(@PathVariable Long id) {
 		return salleService.findById(id);
 	}
-	
+
 	@DeleteMapping("/id/{id}")
-	public int deleteById(@PathVariable int id) {
-		return salleService.deleteById(id);
+	public void deleteById(@PathVariable Long id) {
+		salleService.deleteById(id);
 	}
-	
+
 	@PostMapping("/")
 	public void save(@RequestBody Salle salle) {
 		salleService.save(salle);
-		
 
 	}
+
 	@GetMapping("/")
 	public List<Salle> findAll() {
 		return salleService.findAll();

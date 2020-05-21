@@ -8,40 +8,49 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class TypeClub implements Serializable{
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+public class TypeClub implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String libelle;
 	private String code;
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getLibelle() {
 		return libelle;
 	}
+
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+
 	public String getCode() {
 		return code;
 	}
+
 	public void setCode(String code) {
 		this.code = code;
 	}
+
 	public TypeClub() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public TypeClub(Long id, String libelle, String code) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
 		this.code = code;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -51,6 +60,7 @@ public class TypeClub implements Serializable{
 		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -77,13 +87,10 @@ public class TypeClub implements Serializable{
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "TypeClub [id=" + id + ", libelle=" + libelle + ", code=" + code + "]";
 	}
 
-	
-	
-	
-	
 }

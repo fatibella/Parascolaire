@@ -1,6 +1,5 @@
 package com.zsmart.parascolaire.ws;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,33 +12,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.zsmart.parascolaire.bean.Mandat;
-
-import com.zsmart.parascolaire.model.facade.MandatService;
-
+import com.zsmart.parascolaire.service.facade.MandatService;
 
 @Controller
-@RequestMapping("parascolaire/mandat")
+@RequestMapping("parascolaire/Mandat")
 public class MandatRest {
-	
+
 	@Autowired
 	private MandatService mandatService;
-	
+
 	@GetMapping("/id/{id}")
-	public Mandat findById(@PathVariable int id) {
+	public Mandat findById(@PathVariable Long id) {
 		return mandatService.findById(id);
 	}
-	
+
 	@DeleteMapping("/id/{id}")
-	public int deleteById(@PathVariable int id) {
-		return mandatService.deleteById(id);
+	public void deleteById(@PathVariable Long id) {
+		mandatService.deleteById(id);
 	}
-	
+
 	@PostMapping("/")
 	public void save(@RequestBody Mandat mandat) {
 		mandatService.save(mandat);
-		
 
 	}
+
 	@GetMapping("/")
 	public List<Mandat> findAll() {
 		return mandatService.findAll();

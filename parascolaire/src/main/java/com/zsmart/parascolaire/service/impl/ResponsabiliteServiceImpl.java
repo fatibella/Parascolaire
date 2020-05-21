@@ -1,4 +1,4 @@
-package com.zsmart.parascolaire.model.impl;
+package com.zsmart.parascolaire.service.impl;
 
 import java.util.List;
 
@@ -7,15 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.zsmart.parascolaire.bean.Responsabilite;
 import com.zsmart.parascolaire.dao.ResponsabiliteDao;
-import com.zsmart.parascolaire.model.facade.ResponsabiliteService;
+import com.zsmart.parascolaire.service.facade.ResponsabiliteService;
 
 @Service
-public class ResponsabiliteServiceImpl implements ResponsabiliteService{
-	
+public class ResponsabiliteServiceImpl implements ResponsabiliteService {
+
 	@Autowired
 	private ResponsabiliteDao responsabiliteDao;
 
-	
 	@Override
 	public void save(Responsabilite responsabilite) {
 		// TODO Auto-generated method stub
@@ -26,6 +25,16 @@ public class ResponsabiliteServiceImpl implements ResponsabiliteService{
 	public List<Responsabilite> findAll() {
 		// TODO Auto-generated method stub
 		return responsabiliteDao.findAll();
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		responsabiliteDao.deleteById(id);
+	}
+
+	@Override
+	public Responsabilite findById(Long id) {
+		return responsabiliteDao.getOne(id);
 	}
 
 }

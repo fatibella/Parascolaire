@@ -10,8 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Mandat implements Serializable{
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+public class Mandat implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private Date dateDebut;
 	private Date dateFin;
@@ -21,47 +22,60 @@ public class Mandat implements Serializable{
 	private Responsabilite responsabilite;
 	@ManyToOne
 	private Utilisateur utilisateur;
-	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public Date getDateDebut() {
 		return dateDebut;
 	}
+
 	public void setDateDebut(Date dateDebut) {
 		this.dateDebut = dateDebut;
 	}
+
 	public Date getDateFin() {
 		return dateFin;
 	}
+
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
+
 	public Club getClub() {
 		return club;
 	}
+
 	public void setClub(Club club) {
 		this.club = club;
 	}
+
 	public Responsabilite getResponsabilite() {
 		return responsabilite;
 	}
+
 	public void setResponsabilite(Responsabilite responsabilite) {
 		this.responsabilite = responsabilite;
 	}
+
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
+
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
+
 	public Mandat() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public Mandat(Long id, Date dateDebut, Date dateFin, Club club, Responsabilite responsabilite,
 			Utilisateur utilisateur) {
 		super();
@@ -72,6 +86,7 @@ public class Mandat implements Serializable{
 		this.responsabilite = responsabilite;
 		this.utilisateur = utilisateur;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -84,6 +99,7 @@ public class Mandat implements Serializable{
 		result = prime * result + ((utilisateur == null) ? 0 : utilisateur.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -125,13 +141,11 @@ public class Mandat implements Serializable{
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Mondat [id=" + id + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", club=" + club
 				+ ", responsabilite=" + responsabilite + ", utilisateur=" + utilisateur + "]";
 	}
-	
 
-	
-	
 }

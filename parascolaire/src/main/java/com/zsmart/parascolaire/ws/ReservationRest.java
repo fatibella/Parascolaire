@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.zsmart.parascolaire.bean.Reservation;
-import com.zsmart.parascolaire.model.facade.ReservationService;
+import com.zsmart.parascolaire.service.facade.ReservationService;
 
 @Controller
 @RequestMapping("parascolaire/reservation")
@@ -20,23 +20,23 @@ public class ReservationRest {
 
 	@Autowired
 	private ReservationService reservationService;
-	
+
 	@GetMapping("/id/{id}")
-	public Reservation findById(@PathVariable int id) {
+	public Reservation findById(@PathVariable Long id) {
 		return reservationService.findById(id);
 	}
-	
+
 	@DeleteMapping("/id/{id}")
-	public int deleteById(@PathVariable int id) {
-		return reservationService.deleteById(id);
+	public void deleteById(@PathVariable Long id) {
+		reservationService.deleteById(id);
 	}
-	
+
 	@PostMapping("/")
 	public void save(@RequestBody Reservation reservation) {
 		reservationService.save(reservation);
-		
 
 	}
+
 	@GetMapping("/")
 	public List<Reservation> findAll() {
 		return reservationService.findAll();

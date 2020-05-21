@@ -1,4 +1,4 @@
-package com.zsmart.parascolaire.model.impl;
+package com.zsmart.parascolaire.service.impl;
 
 import java.util.List;
 
@@ -7,15 +7,13 @@ import org.springframework.stereotype.Service;
 
 import com.zsmart.parascolaire.bean.Utilisateur;
 import com.zsmart.parascolaire.dao.UtilisateurDao;
-import com.zsmart.parascolaire.model.facade.UtilisateurService;
+import com.zsmart.parascolaire.service.facade.UtilisateurService;
 
 @Service
-public class UtilisateurServiceImpl implements UtilisateurService{
+public class UtilisateurServiceImpl implements UtilisateurService {
 
 	@Autowired
 	private UtilisateurDao utilisateurDao;
-	
-	
 
 	@Override
 	public void save(Utilisateur utilisateur) {
@@ -28,7 +26,15 @@ public class UtilisateurServiceImpl implements UtilisateurService{
 		// TODO Auto-generated method stub
 		return utilisateurDao.findAll();
 	}
-	
-	
+
+	@Override
+	public Utilisateur findById(Long id) {
+		return utilisateurDao.getOne(id);
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		utilisateurDao.deleteById(id);
+	}
 
 }

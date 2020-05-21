@@ -10,6 +10,5 @@ import com.zsmart.parascolaire.bean.Reservation;
 @Repository
 public interface ReservationDao extends JpaRepository<Reservation, Long> {
 
-	
-	   public List<Reservation> findAll();
+	public List<Reservation> findAll();
 }

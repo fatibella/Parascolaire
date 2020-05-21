@@ -10,9 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Reservation implements Serializable{
+public class Reservation implements Serializable {
 
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@ManyToOne
 	private Club club;
@@ -22,10 +23,12 @@ public class Reservation implements Serializable{
 	private Salle salle;
 	private Date dateDebut;
 	private Date dateFin;
+
 	public Reservation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public Reservation(Long id, Club club, Evenement evenement, Salle salle, Date dateDebut, Date dateFin) {
 		super();
 		this.id = id;
@@ -35,43 +38,53 @@ public class Reservation implements Serializable{
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public Club getClub() {
 		return club;
 	}
+
 	public void setClub(Club club) {
 		this.club = club;
 	}
+
 	public Evenement getEvenement() {
 		return evenement;
 	}
+
 	public void setEvenement(Evenement evenement) {
 		this.evenement = evenement;
 	}
+
 	public Salle getSalle() {
 		return salle;
 	}
+
 	public void setSalle(Salle salle) {
 		this.salle = salle;
 	}
+
 	public Date getDateDebut() {
 		return dateDebut;
 	}
+
 	public void setDateDebut(Date dateDebut) {
 		this.dateDebut = dateDebut;
 	}
+
 	public Date getDateFin() {
 		return dateFin;
 	}
+
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-	
-	
-	
+
 }
