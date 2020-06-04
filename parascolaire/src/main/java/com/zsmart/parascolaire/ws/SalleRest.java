@@ -42,4 +42,12 @@ public class SalleRest {
 		return salleService.findAll();
 	}
 
+    public SalleService getSalleService() {
+        return salleService;
+    }
+
+    public void setSalleService(SalleService salleService) {
+        this.salleService = salleService;
+    }
+
 }

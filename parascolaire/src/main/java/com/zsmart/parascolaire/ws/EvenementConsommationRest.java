@@ -53,4 +53,12 @@ public class EvenementConsommationRest {
 		evenementConsommationService.deleteById(id);
 	}
 
+    public EvenementConsommationService getEvenementConsommationService() {
+        return evenementConsommationService;
+    }
+
+    public void setEvenementConsommationService(EvenementConsommationService evenementConsommationService) {
+        this.evenementConsommationService = evenementConsommationService;
+    }
+
 }

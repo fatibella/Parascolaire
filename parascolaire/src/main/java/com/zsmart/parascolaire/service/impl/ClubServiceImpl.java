@@ -93,4 +93,14 @@ public class ClubServiceImpl implements ClubService {
 //		}
 //	}
 
+    public ClubDao getClubDao() {
+        return clubDao;
+    }
+
+    public void setClubDao(ClubDao clubDao) {
+        this.clubDao = clubDao;
+    }
+
+        
+        
 }

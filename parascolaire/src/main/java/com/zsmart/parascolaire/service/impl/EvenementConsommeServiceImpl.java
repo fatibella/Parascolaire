@@ -61,4 +61,16 @@ public class EvenementConsommeServiceImpl implements EvenementConsommationServic
 
 		return evenementConsommationDao.getOne(id);
 	}
+
+    public EvenementConsommationDao getEvenementConsommationDao() {
+        return evenementConsommationDao;
+    }
+
+    public void setEvenementConsommationDao(EvenementConsommationDao evenementConsommationDao) {
+        this.evenementConsommationDao = evenementConsommationDao;
+    }
+        
+        
+        
+        
 }

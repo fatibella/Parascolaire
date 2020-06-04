@@ -75,4 +75,12 @@ public class TypeClubServiceImpl implements TypeClubService {
 		}
 	}
 
+    public TypeClubDao getTypeClubDao() {
+        return typeClubDao;
+    }
+
+    public void setTypeClubDao(TypeClubDao typeClubDao) {
+        this.typeClubDao = typeClubDao;
+    }
+
 }

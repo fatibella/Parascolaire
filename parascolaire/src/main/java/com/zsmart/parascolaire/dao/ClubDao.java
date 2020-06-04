@@ -8,11 +8,6 @@ import com.zsmart.parascolaire.bean.Club;
 @Repository
 public interface ClubDao extends JpaRepository<Club, Long> {
 
-	/**
-	 *
-	 * @param libelle
-	 * @return
-	 */
 	public Club findByLibelle(String libelle);
 
 	public Club deleteByLibelle(String libelle);

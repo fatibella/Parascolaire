@@ -42,4 +42,14 @@ public class ReservationServiceImpl implements ReservationService {
 		reservationDao.deleteById(id);
 
 	}
+
+    public ReservationDao getReservationDao() {
+        return reservationDao;
+    }
+
+    public void setReservationDao(ReservationDao reservationDao) {
+        this.reservationDao = reservationDao;
+    }
+        
+        
 }

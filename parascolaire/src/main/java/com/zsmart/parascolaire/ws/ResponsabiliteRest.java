@@ -42,4 +42,12 @@ public class ResponsabiliteRest {
 		return responsabiliteService.findAll();
 	}
 
+    public ResponsabiliteService getResponsabiliteService() {
+        return responsabiliteService;
+    }
+
+    public void setResponsabiliteService(ResponsabiliteService responsabiliteService) {
+        this.responsabiliteService = responsabiliteService;
+    }
+
 }

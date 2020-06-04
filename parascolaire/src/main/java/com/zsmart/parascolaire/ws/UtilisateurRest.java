@@ -42,4 +42,12 @@ public class UtilisateurRest {
 		return utilisateurService.findAll();
 	}
 
+    public UtilisateurService getUtilisateurService() {
+        return utilisateurService;
+    }
+
+    public void setUtilisateurService(UtilisateurService utilisateurService) {
+        this.utilisateurService = utilisateurService;
+    }
+
 }

@@ -39,4 +39,13 @@ public class SalleServiceImpl implements SalleService {
 
 	}
 
+    public SalleDao getSalleDao() {
+        return salleDao;
+    }
+
+    public void setSalleDao(SalleDao salleDao) {
+        this.salleDao = salleDao;
+    }
+
+        
 }

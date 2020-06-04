@@ -41,4 +41,12 @@ public class MandatServiceImpl implements MandatService {
 
 	}
 
+    public MandatDao getMandatDao() {
+        return mandatDao;
+    }
+
+    public void setMandatDao(MandatDao mandatDao) {
+        this.mandatDao = mandatDao;
+    }
+
 }

@@ -74,4 +74,14 @@ public class EvenementServiceImpl implements EvenementService {
 
 	}
 
+    public EvenementDao getEvenementDao() {
+        return evenementDao;
+    }
+
+    public void setEvenementDao(EvenementDao evenementDao) {
+        this.evenementDao = evenementDao;
+    }
+        
+        
+
 }

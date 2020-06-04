@@ -42,4 +42,12 @@ public class ReservationRest {
 		return reservationService.findAll();
 	}
 
+    public ReservationService getReservationService() {
+        return reservationService;
+    }
+
+    public void setReservationService(ReservationService reservationService) {
+        this.reservationService = reservationService;
+    }
+
 }

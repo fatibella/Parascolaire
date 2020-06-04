@@ -37,4 +37,14 @@ public class ResponsabiliteServiceImpl implements ResponsabiliteService {
 		return responsabiliteDao.getOne(id);
 	}
 
+    public ResponsabiliteDao getResponsabiliteDao() {
+        return responsabiliteDao;
+    }
+
+    public void setResponsabiliteDao(ResponsabiliteDao responsabiliteDao) {
+        this.responsabiliteDao = responsabiliteDao;
+    }
+        
+        
+
 }

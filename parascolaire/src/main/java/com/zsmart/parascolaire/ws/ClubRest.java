@@ -63,4 +63,13 @@ public class ClubRest {
 		clubService.deleteByLibelle(libelle);
 	}
 
+    public ClubService getClubService() {
+        return clubService;
+    }
+
+    public void setClubService(ClubService clubService) {
+        this.clubService = clubService;
+    }
+
+        
 }

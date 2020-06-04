@@ -37,4 +37,15 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 		utilisateurDao.deleteById(id);
 	}
 
+    public UtilisateurDao getUtilisateurDao() {
+        return utilisateurDao;
+    }
+
+    public void setUtilisateurDao(UtilisateurDao utilisateurDao) {
+        this.utilisateurDao = utilisateurDao;
+    }
+        
+        
+        
+
 }

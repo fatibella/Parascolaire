@@ -63,4 +63,12 @@ public class EvenementRest {
 		evenementService.deleteByLibelle(libelle);
 	}
 
+    public EvenementService getEvenementService() {
+        return evenementService;
+    }
+
+    public void setEvenementService(EvenementService evenementService) {
+        this.evenementService = evenementService;
+    }
+
 }

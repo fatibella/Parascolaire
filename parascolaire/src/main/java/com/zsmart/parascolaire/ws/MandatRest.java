@@ -42,4 +42,12 @@ public class MandatRest {
 		return mandatService.findAll();
 	}
 
+    public MandatService getMandatService() {
+        return mandatService;
+    }
+
+    public void setMandatService(MandatService mandatService) {
+        this.mandatService = mandatService;
+    }
+
 }
