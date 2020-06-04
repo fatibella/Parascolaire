@@ -1,12 +1,13 @@
 package com.zsmart.parascolaire.service.facade;
 
+import java.util.Date;
 import java.util.List;
 
 import com.zsmart.parascolaire.bean.Reservation;
 
 public interface ReservationService {
 
-	public void save(Reservation reservation);
+	public int save(Reservation reservation);
 
 	public List<Reservation> findAll();
 
@@ -16,4 +17,5 @@ public interface ReservationService {
 
 	public void deleteById(Long id);
 
+	public List<Reservation> findByDate(Date dateDebut, Date dateFin);
 }

@@ -1,10 +1,12 @@
 package com.zsmart.parascolaire.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.zsmart.parascolaire.bean.Club;
 import com.zsmart.parascolaire.bean.Reservation;
 import com.zsmart.parascolaire.dao.ReservationDao;
 import com.zsmart.parascolaire.service.facade.ReservationService;
@@ -16,8 +18,16 @@ public class ReservationServiceImpl implements ReservationService {
 	private ReservationDao reservationDao;
 
 	@Override
-	public void save(Reservation reservation) {
-		reservationDao.save(reservation);
+	public int save(Reservation reservation) {
+
+		if (reservation == null) {
+			return 0;
+
+		} else {
+			reservationDao.save(reservation);
+			return 1;
+		}
+
 	}
 
 	@Override
@@ -34,7 +44,12 @@ public class ReservationServiceImpl implements ReservationService {
 	@Override
 	public int delete(Reservation reservation) {
 		// TODO Auto-generated method stub
-		return 0;
+		if (reservation == null) {
+			return -1;
+		} else {
+			reservationDao.delete(reservation);
+			return 1;
+		}
 	}
 
 	@Override
@@ -43,13 +58,18 @@ public class ReservationServiceImpl implements ReservationService {
 
 	}
 
-    public ReservationDao getReservationDao() {
-        return reservationDao;
-    }
+	@Override
+	public List<Reservation> findByDate(Date dateDebut, Date dateFin) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    public void setReservationDao(ReservationDao reservationDao) {
-        this.reservationDao = reservationDao;
-    }
-        
-        
+	public ReservationDao getReservationDao() {
+		return reservationDao;
+	}
+
+	public void setReservationDao(ReservationDao reservationDao) {
+		this.reservationDao = reservationDao;
+	}
+
 }

@@ -1,5 +1,6 @@
 package com.zsmart.parascolaire.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,5 +11,5 @@ import com.zsmart.parascolaire.bean.Reservation;
 @Repository
 public interface ReservationDao extends JpaRepository<Reservation, Long> {
 
-	public List<Reservation> findAll();
+	public List<Reservation> findByDate(Date dateDebut, Date dateFin );
 }

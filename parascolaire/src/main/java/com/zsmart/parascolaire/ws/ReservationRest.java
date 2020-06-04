@@ -15,7 +15,7 @@ import com.zsmart.parascolaire.bean.Reservation;
 import com.zsmart.parascolaire.service.facade.ReservationService;
 
 @Controller
-@RequestMapping("parascolaire/reservation")
+@RequestMapping("parascolaire/Reservation")
 public class ReservationRest {
 
 	@Autowired
@@ -32,8 +32,8 @@ public class ReservationRest {
 	}
 
 	@PostMapping("/")
-	public void save(@RequestBody Reservation reservation) {
-		reservationService.save(reservation);
+	public int save(@RequestBody Reservation reservation) {
+		return reservationService.save(reservation);
 
 	}
 
@@ -42,12 +42,12 @@ public class ReservationRest {
 		return reservationService.findAll();
 	}
 
-    public ReservationService getReservationService() {
-        return reservationService;
-    }
+	public ReservationService getReservationService() {
+		return reservationService;
+	}
 
-    public void setReservationService(ReservationService reservationService) {
-        this.reservationService = reservationService;
-    }
+	public void setReservationService(ReservationService reservationService) {
+		this.reservationService = reservationService;
+	}
 
 }
