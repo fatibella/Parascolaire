@@ -1,4 +1,4 @@
-package com.zsmart.parascolaire.ws;
+package com.zsmart.parascolaire.ws.rest.provided;
 
 import java.util.List;
 
@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.zsmart.parascolaire.bean.Club;
 import com.zsmart.parascolaire.service.facade.ClubService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api("cette end point permet de gerer les clubs")
 @Controller
 @RequestMapping("/parascolaire/Club")
 @CrossOrigin(origins = { "http://localhost:4200" })
@@ -35,11 +39,12 @@ public class ClubRest {
 		return clubService.findByLibelle(libelle);
 	}
 
+	@ApiOperation("cette methode permet de find all clubs")
 	@GetMapping("/")
-	public List<Club> findAll() {
+	public List<Club> findAll() { 
 		return clubService.findAll();
 	}
-
+	@ApiOperation("cette methode permet de save all clubs")
 	@PostMapping("/")
 	public int save(@RequestBody Club club) {
 		return clubService.save(club);
@@ -63,13 +68,12 @@ public class ClubRest {
 		clubService.deleteByLibelle(libelle);
 	}
 
-    public ClubService getClubService() {
-        return clubService;
-    }
+	public ClubService getClubService() {
+		return clubService;
+	}
 
-    public void setClubService(ClubService clubService) {
-        this.clubService = clubService;
-    }
+	public void setClubService(ClubService clubService) {
+		this.clubService = clubService;
+	}
 
-        
 }

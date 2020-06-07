@@ -11,5 +11,4 @@ import com.zsmart.parascolaire.bean.Reservation;
 @Repository
 public interface ReservationDao extends JpaRepository<Reservation, Long> {
 
-	public List<Reservation> findByDate(Date dateDebut, Date dateFin );
 }

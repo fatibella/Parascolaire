@@ -17,5 +17,5 @@ public interface ReservationService {
 
 	public void deleteById(Long id);
 
-	public List<Reservation> findByDate(Date dateDebut, Date dateFin);
+	//public List<Reservation> findByDate(Date dateDebut, Date dateFin);
 }

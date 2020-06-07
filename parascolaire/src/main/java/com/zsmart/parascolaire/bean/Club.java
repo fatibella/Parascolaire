@@ -2,12 +2,14 @@ package com.zsmart.parascolaire.bean;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -27,6 +29,9 @@ public class Club implements Serializable {
 	@ManyToOne
 	private TypeClub typeClub;
 
+	@OneToMany
+	private List<Evenement> evenement;
+
 	public Long getId() {
 		return id;
 	}
@@ -39,16 +44,16 @@ public class Club implements Serializable {
 		return libelle;
 	}
 
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
 	}
 
 	public Date getDateCreation() {
@@ -67,17 +72,28 @@ public class Club implements Serializable {
 		this.typeClub = typeClub;
 	}
 
+	public List<Evenement> getEvenement() {
+		return evenement;
+	}
+
+	public void setEvenement(List<Evenement> evenement) {
+		this.evenement = evenement;
+	}
+
 	public Club() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Club(Long id, String libelle, Date dateCreation, TypeClub typeClub) {
+	public Club(Long id, String libelle, String description, Date dateCreation, TypeClub typeClub,
+			List<Evenement> evenement) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
+		this.description = description;
 		this.dateCreation = dateCreation;
 		this.typeClub = typeClub;
+		this.evenement = evenement;
 	}
 
 	@Override
@@ -85,6 +101,8 @@ public class Club implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((dateCreation == null) ? 0 : dateCreation.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((evenement == null) ? 0 : evenement.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
 		result = prime * result + ((typeClub == null) ? 0 : typeClub.hashCode());
@@ -104,6 +122,16 @@ public class Club implements Serializable {
 			if (other.dateCreation != null)
 				return false;
 		} else if (!dateCreation.equals(other.dateCreation))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (evenement == null) {
+			if (other.evenement != null)
+				return false;
+		} else if (!evenement.equals(other.evenement))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -125,8 +153,8 @@ public class Club implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Club [id=" + id + ", libelle=" + libelle + ", dateCreation=" + dateCreation + ", typeClub=" + typeClub
-				+ "]";
+		return "Club [id=" + id + ", libelle=" + libelle + ", description=" + description + ", dateCreation="
+				+ dateCreation + ", typeClub=" + typeClub + ", evenement=" + evenement + "]";
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.zsmart.parascolaire.ws;
+package com.zsmart.parascolaire.ws.rest.provided;
 
 import java.util.List;
 

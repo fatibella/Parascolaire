@@ -58,12 +58,6 @@ public class ReservationServiceImpl implements ReservationService {
 
 	}
 
-	@Override
-	public List<Reservation> findByDate(Date dateDebut, Date dateFin) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public ReservationDao getReservationDao() {
 		return reservationDao;
 	}

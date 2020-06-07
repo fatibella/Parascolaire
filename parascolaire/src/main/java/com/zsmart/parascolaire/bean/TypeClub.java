@@ -1,11 +1,13 @@
 package com.zsmart.parascolaire.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class TypeClub implements Serializable {
@@ -14,6 +16,10 @@ public class TypeClub implements Serializable {
 	private Long id;
 	private String libelle;
 	private String code;
+
+	@OneToMany
+
+	private List<Club> clubs;
 
 	public Long getId() {
 		return id;
@@ -39,22 +45,32 @@ public class TypeClub implements Serializable {
 		this.code = code;
 	}
 
+	public List<Club> getClubs() {
+		return clubs;
+	}
+
+	public void setClubs(List<Club> clubs) {
+		this.clubs = clubs;
+	}
+
 	public TypeClub() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public TypeClub(Long id, String libelle, String code) {
+	public TypeClub(Long id, String libelle, String code, List<Club> clubs) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
 		this.code = code;
+		this.clubs = clubs;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((clubs == null) ? 0 : clubs.hashCode());
 		result = prime * result + ((code == null) ? 0 : code.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
@@ -70,6 +86,11 @@ public class TypeClub implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		TypeClub other = (TypeClub) obj;
+		if (clubs == null) {
+			if (other.clubs != null)
+				return false;
+		} else if (!clubs.equals(other.clubs))
+			return false;
 		if (code == null) {
 			if (other.code != null)
 				return false;
@@ -90,7 +111,7 @@ public class TypeClub implements Serializable {
 
 	@Override
 	public String toString() {
-		return "TypeClub [id=" + id + ", libelle=" + libelle + ", code=" + code + "]";
+		return "TypeClub [id=" + id + ", libelle=" + libelle + ", code=" + code + ", clubs=" + clubs + "]";
 	}
 
 }

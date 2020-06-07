@@ -2,12 +2,14 @@ package com.zsmart.parascolaire.bean;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -33,6 +35,9 @@ public class Evenement implements Serializable {
 
 	@ManyToOne
 	private Club club;
+
+	@OneToMany
+	private List<EvenementConsommation> evenementConsommations;
 
 	public Long getId() {
 		return id;
@@ -98,13 +103,21 @@ public class Evenement implements Serializable {
 		this.club = club;
 	}
 
+	public List<EvenementConsommation> getEvenementConsommation() {
+		return evenementConsommations;
+	}
+
+	public void setEvenementConsommation(List<EvenementConsommation> evenementConsommations) {
+		this.evenementConsommations = evenementConsommations;
+	}
+
 	public Evenement() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public Evenement(Long id, String libelle, String description, Date dateDebut, Date dateFin, Double budgetCollecte,
-			Double budgetConsomme, Club club) {
+			Double budgetConsomme, Club club, List<EvenementConsommation> evenementConsommations) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
@@ -114,6 +127,7 @@ public class Evenement implements Serializable {
 		this.budgetCollecte = budgetCollecte;
 		this.budgetConsomme = budgetConsomme;
 		this.club = club;
+		this.evenementConsommations = evenementConsommations;
 	}
 
 	@Override
@@ -126,6 +140,7 @@ public class Evenement implements Serializable {
 		result = prime * result + ((dateDebut == null) ? 0 : dateDebut.hashCode());
 		result = prime * result + ((dateFin == null) ? 0 : dateFin.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((evenementConsommations == null) ? 0 : evenementConsommations.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((libelle == null) ? 0 : libelle.hashCode());
 		return result;
@@ -170,6 +185,11 @@ public class Evenement implements Serializable {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
+		if (evenementConsommations == null) {
+			if (other.evenementConsommations != null)
+				return false;
+		} else if (!evenementConsommations.equals(other.evenementConsommations))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -187,8 +207,7 @@ public class Evenement implements Serializable {
 	public String toString() {
 		return "Evenement [id=" + id + ", libelle=" + libelle + ", description=" + description + ", dateDebut="
 				+ dateDebut + ", dateFin=" + dateFin + ", budgetCollecte=" + budgetCollecte + ", budgetConsomme="
-				+ budgetConsomme + ", club=" + club + "]";
+				+ budgetConsomme + ", club=" + club + ", evenementConsommation=" + evenementConsommations + "]";
 	}
 
-	
 }
